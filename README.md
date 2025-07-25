@@ -18,22 +18,94 @@ Designed for use within Oracle APEX applications, this script:
 - 📄 A4 landscape format for professional output
 - 💡 Easily pluggable into any APEX page with minimal config
 
-## 🔧 Usage
-1. Download the file, printMixedRegionsStyled_v1.js and upload into the application as a static application file.
+# 🛠️ Setup Instructions – APEX Styled Region Print Generator
 
-2. To upload a static application file to an Oracle APEX application, follow these steps:
-   Navigate to Shared Components:
-    Log in to your APEX workspace.
-    Select the specific application to which you want to upload the file.
-    Click on "Shared Components" from the Application home page.
-  Access Static Application Files:
-    Under the "Files and Reports" section, select "Static Application Files." 
-  Upload the File:
-    Click the "Create File" or "Upload File" button (the exact wording may vary slightly depending on your APEX version).
-    Directory (Optional): You can specify a directory name (e.g., css, js, images) to organize your files. If left blank, the file will be stored in the root directory.
-    File Name (Optional): If creating a new, blank file, enter the desired file name (e.g., my_script.js).
-  Content:
-    Drag and drop the file you want to upload into the designated content area.
-    Alternatively, click the content area and select the file from your local system.
-  Confirm Upload:
-    Click "Upload" or "Create" to complete the process.
+This guide walks you through integrating `printMixedRegionsStyled_v1.js` into your Oracle APEX application.
+
+---
+
+## 1. Upload the JavaScript File
+
+Download `printMixedRegionsStyled_v1.js` and upload it to your APEX application as a **Static Application File**.
+
+### 🔹 Steps:
+1. Open your APEX workspace and navigate to the **target application**.
+2. Go to **Shared Components** → **Static Application Files** (under *Files and Reports*).
+3. Click **Upload File** (or **Create File**).
+4. Drag and drop the JS file into the upload area.
+   - **Directory (optional):** You may enter a folder like `js` to organize files.
+   - **File Name (optional):** You can rename it (e.g., `printMixedRegionsStyled_v1.js`).
+5. Click **Upload** to complete.
+
+---
+
+## 2. Reference the File in Your APEX Page
+
+In your target page:
+
+- Navigate to **Page Designer** → **Page Attributes** → **JavaScript** → **File URLs**
+- Add this line (adjust path if you used a directory):
+  ```plaintext
+  #APP_FILES#js/printMixedRegionsStyled_v1.js
+  ```
+
+![File reference](https://github.com/user-attachments/assets/962fc720-2c91-43ed-a69c-684a34224828)
+
+---
+
+## 3. Add a Print Button
+
+Create a button anywhere on your page (inside or outside a region).
+
+- Suggested name: `PRINT_BTN`
+- Button action: **Defined by Dynamic Action**
+
+---
+
+## 4. Create a Dynamic Action
+
+Create a Dynamic Action to trigger the print logic.
+
+### 🔹 Configuration:
+- **Name:** `Print_PDF` (or any name)
+- **Event:** Click
+- **Selection Type:** Button → `PRINT_BTN`
+- **Action:** Execute JavaScript Code
+
+### 🔹 JavaScript Code:
+```javascript
+printMixedRegionsStyled([
+  {
+    regionStaticId: {grid_static_id_name}, /*region static id*/
+    type: 'IG',             /*region_type*/
+    columnsToPrint: [2,3,4,5,6,7,8,9,10,12,13,14,15,16], /*input column number to print*/
+    title: {title} /*input title*/
+  },
+  {
+    regionStaticId: {grid_static_id_name}, /*region static id*/
+    type: 'IG', /*region_type*/
+    columnsToPrint: [1,3,5,6,7,8],  /*input column number to print*/
+    title: {title} /*input title*/
+  },
+ 
+  {
+    regionStaticId: {classic_report_static_id}, /*region static id*/
+    type: 'Classic',/*region_type*/
+    title: {title} /*input title*/
+  },
+    {
+    regionStaticId: {classic_report_static_id}, /*region static id*/
+    type: 'Classic', /*region_type*/
+    title: {title} /*input title*/
+  }
+          
+]);
+```
+
+---
+
+## ✅ You're Done!
+
+Now, when the print button is clicked, your selected Classic and IG regions will be rendered in a styled, print-ready layout with optional headers, notes, and signature blocks.
+
+---
