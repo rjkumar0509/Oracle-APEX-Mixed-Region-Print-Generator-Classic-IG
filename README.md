@@ -1,2 +1,2 @@
-# Oracle-APEX-Mixed-Region-Print-Generator-Classic-IG-
+# Oracle-APEX-Mixed-Region-Print-Generator-Classic-IG
 Your Oracle APEX reports deserve better. Say goodbye to clunky layouts, cut-off tables, and the frustration of printing one region at a time. This utility transforms all Classic Reports and Interactive Grids on a page into a single, clean, styled, print-ready document—complete with custom headings, logos, and optional notes or signature sections.
