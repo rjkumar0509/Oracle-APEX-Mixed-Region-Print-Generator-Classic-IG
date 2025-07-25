@@ -19,9 +19,21 @@ Designed for use within Oracle APEX applications, this script:
 - 💡 Easily pluggable into any APEX page with minimal config
 
 ## 🔧 Usage
-Invoke the function in your APEX page with a list of regions:
-```javascript
-printMixedRegionsStyled([
-  { regionStaticId: "emp_summary", type: "Classic", title: "Employee Summary" },
-  { regionStaticId: "emp_grid", type: "IG", columnsToPrint: [0, 2, 3], title: "Employee Details" }
-]);
+1. Download the file, printMixedRegionsStyled_v1.js and upload into the application as a static application file.
+
+2. To upload a static application file to an Oracle APEX application, follow these steps:
+   Navigate to Shared Components:
+    Log in to your APEX workspace.
+    Select the specific application to which you want to upload the file.
+    Click on "Shared Components" from the Application home page.
+  Access Static Application Files:
+    Under the "Files and Reports" section, select "Static Application Files." 
+  Upload the File:
+    Click the "Create File" or "Upload File" button (the exact wording may vary slightly depending on your APEX version).
+    Directory (Optional): You can specify a directory name (e.g., css, js, images) to organize your files. If left blank, the file will be stored in the root directory.
+    File Name (Optional): If creating a new, blank file, enter the desired file name (e.g., my_script.js).
+  Content:
+    Drag and drop the file you want to upload into the designated content area.
+    Alternatively, click the content area and select the file from your local system.
+  Confirm Upload:
+    Click "Upload" or "Create" to complete the process.
