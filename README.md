@@ -1,7 +1,5 @@
 # Oracle-APEX-Mixed-Region-Print-Generator-Classic-IG
-Your Oracle APEX reports deserve better. Say goodbye to clunky layouts, cut-off tables, and the frustration of printing one region at a time. This utility transforms all Classic Reports and Interactive Grids on a page into a single, clean, styled, print-ready document—complete with custom headings, logos, and optional notes or signature sections.
 
-Description:
 A lightweight JavaScript utility that dynamically renders and prints **Oracle APEX Classic Reports** and **Interactive Grids (IG)** in a clean, styled, and print-ready HTML layout to a single page.
 
 Designed for use within Oracle APEX applications, this script:
